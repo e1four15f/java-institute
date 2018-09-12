@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.miet.mp35a.karmazin","l":"Main"}]
