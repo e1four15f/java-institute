@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.miet.mp35a.karmazin","l":"Car"},{"p":"com.miet.mp35a.karmazin","l":"DPSPoint"},{"p":"com.miet.mp35a.karmazin","l":"Main"},{"p":"com.miet.mp35a.karmazin","l":"Radio"},{"p":"com.miet.mp35a.karmazin","l":"Truck"}]
