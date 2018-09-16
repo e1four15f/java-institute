@@ -8,6 +8,12 @@ package com.miet.mp35a.karmazin;
 public class Radio {
     /** Текущая станция. */
     private String currentStation;
+
+    /**
+     * Задать текущую радиостанцию.
+     *
+     * @param currentStation название радиостанции.
+     */
     public void SetCurrentStation(String currentStation) {
         Main.view("На радио включена станция " + currentStation);
         this.currentStation = currentStation;
@@ -26,7 +32,7 @@ public class Radio {
     /**
      * Запуск работы радио.
      *
-     * @throws Exception Ошибка, если не выбрана радио станция.
+     * @throws Exception Ошибка, если не выбрана радиостанция.
      */
     public void PlayTunes() throws Exception {
         if(currentStation != null)
@@ -34,7 +40,7 @@ public class Radio {
             working = true;
             Main.view("Играет музыка со станции " + currentStation);
         } else {
-            throw new Exception("\u001B[31m" + "Не выбрана радио станция" + "\u001B[0m");
+            throw new Exception("\u001B[31m" + "Не выбрана радиостанция" + "\u001B[0m");
         }
     }
 }
