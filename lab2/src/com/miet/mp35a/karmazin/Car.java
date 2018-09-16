@@ -10,10 +10,12 @@ public class Car {
     public String brand;
     /** Максимальная скорость. */
     public int maxVelocity;
+
+
     /** Радио. */
     private Radio radio;
-    public void SetRadio(Radio radio) {
-        this.radio = radio;
+    public Radio GetRadio() {
+        return radio;
     }
 
     /**

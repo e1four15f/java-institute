@@ -3,7 +3,7 @@ package com.miet.mp35a.karmazin;
 /**
  * Вариант № с_7
  * 1. Разработать модель пропускного автомобильного пункта из следующих
- * классов:\n
+ * классов:
  * a. Машина: марка машины, максимальная скорость, радио, метод Move.
  * b. Радио: текущая станция, статус работы (вкл/выкл), метод PlayTunes.
  * c. Грузовик: вес, высота кузова.
@@ -18,6 +18,9 @@ package com.miet.mp35a.karmazin;
  * @author Me :)
  */
 public class Main {
+    private static DPSPoint dpsPoint;
+    private static Car goodCar, badCar;
+    private static Truck goodTruck, badTruck;
 
     /**
      * Выводит на устройство строку
@@ -34,36 +37,26 @@ public class Main {
      */
     static void controller() {
         //Проверка класса радио
-        Radio radio = new Radio();
         while(true) {
             try {
-                radio.PlayTunes();
+                goodCar.GetRadio().PlayTunes();
                 break;
             } catch (Exception ex) {
-                radio.SetCurrentStation("322 FM");
                 view(ex.getMessage());
+                goodCar.GetRadio().SetCurrentStation("322 FM");
             }
         }
 
-        // Проверка класса пункта ДПС
-        DPSPoint dpsPoint = new DPSPoint(150, 500, 200);
-
         // Группа машин проходящие контроль
-        Car goodCar = new Car("Audi");
         goodCar.Move(140);
         dpsPoint.Pass(goodCar);
-
-        Truck goodTruck = new Truck(450, 175);
         dpsPoint.Pass(goodTruck);
 
         // Группа машин не проходящие контроль
-        Car badCar = new Car("BMW");
         badCar.Move(130);
         badCar.Move(240);
         badCar.Move(60);
         dpsPoint.Pass(badCar);
-
-        Truck badTruck = new Truck(640, 215);
         dpsPoint.Pass(badTruck);
 
         view("Конец!");
@@ -73,7 +66,11 @@ public class Main {
      * Метод model инициирует значения по умолчанию
      */
     static void model() {
-
+        dpsPoint = new DPSPoint(150, 500, 200);
+        goodCar = new Car("Audi");
+        goodTruck = new Truck(450, 175);
+        badCar = new Car("BMW");
+        badTruck = new Truck(640, 215);
     }
 
     /**
